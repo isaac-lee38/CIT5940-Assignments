@@ -14,7 +14,7 @@ public class TicketProcessor {
         LinkedList<String> ticketQueue = new LinkedList<>();
 
         // Uncomment the queue length you want to test with
-        // createShortQueue(ticketQueue);
+        createShortQueue(ticketQueue);
         // createLongQueue(ticketQueue);
 
         

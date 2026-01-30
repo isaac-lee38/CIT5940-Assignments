@@ -29,12 +29,12 @@ public class FindFirstInstance {
     public static int[] findFirstInstanceTwo(int[][] grid, int target) {
         int[] result = {-1, -1};
 
-
+        // onyl save location if haven't found + no inner loop breal  no global flag to break the outer loop
         for (int r = 0; r < grid.length; r++) {
             for (int c = 0; c < grid[r].length; c++) {
                 
-                // only save location if we haven’t found yet
-                if (grid[r][c] == target && result[0] == -1) {
+                // only save location if we haven’t found yet 
+                if (grid[r][c] == target&& result[0] == -1 ) {
                     result[0] = r;
                     result[1] = c;
                 }
@@ -68,12 +68,14 @@ public class FindFirstInstance {
     }
 
     public static int[][] getGridOne() {
+        //target at (0,0)
         int[][] grid = new int[4000][4000];
         grid[0][0] = 5;
         return grid;
     }
 
     public static int[][] getGridTwo() {
+        // Target at (3999,3999)
         int[][] grid = new int[4000][4000];
         grid[3999][3999] = 5;
         return grid;

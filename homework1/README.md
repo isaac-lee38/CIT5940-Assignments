@@ -1,24 +1,43 @@
 ## Please enter your personal info here:
 Name:
-
+LEE Kwan Yuen
 PennKey (e.g., taliem):
-
+lee38
 
 # Part 1:
 ## Are Alicia and Lloyd both wrong, or perhaps both right? Is only one of them correct? Why?
 
+Lloyd is correct: Snippet A is O(1), since .size() is a O(1) operation, and get() is also O(1). 
+Snippet B is O(N). .get(0), get(last item), remove(last item) is all O(1). Yet, the remove(0) will shift the entire array forward by 1, thus is O(N). Overall, this will be O(N).
+
 
 # Part 2:
 ## What are the Big O and Big Ω times for snippets C and D?
-
+Snippet C: Best case Ω = Ω(1), Worse case O = O(nm).
+Have inner break + global flag ot break outer loop once result is found.
+Snippet D: Best case Ω = Ω(nm), Worse case O = O(nm)
+Loop continues for full O(nm) even after result is found, due to (1) Lack of inner break (2) no global flag to break outer loop.
 
 ## When measuring actual runtime, does one of the snippets run faster than the other? In what situations? Why do you think this is the case?
+GridOne + MethodOne average time: 2.8814E-4 ms 
+Since target is in the first cell and we break early once the target is found.
+GridOne + MethodTwo average time: 9.614777791 ms
+Since target is in the first cell but we run the entire O(nm) loop.
+GridTwo + MethodOne average time: 5.199962082 ms
+Target is in the last cell, so have to run the entire O(nm) loop to reach there.
+GridTwo + MethodTwo average time: 10.453247539 ms
+Target is in the last cell, so have to run the entire O(nm) loop to reach there.
+How come this is nearly double of 5.2ms? I ran benchmark by removing the && result[0] == -1, and its around 5.2ns. Thus, we can single out the culprit being this extra check in the if condition statement. 
 
 ## What else do you notice about the reported runtime? Is it 100% consistent every time you run it?
+It tends to vary when i first run it. However, after writing a benchmark class to pre-run the findFirst function for 100 times in JVM before i do the actual benchmark, it is much more consistent.
 
 
 # Part 3:
 ## Before you make any changes, explain whether you think a LinkedList or an ArrayList makes more sense in this instance. Which do you think will be faster? Why?
+You are basically doing 2 jobs with this: (1) Add ticket, then process the oldest ticket and remove it (2) Calculate the number of tickets you have on hand.
+
+LinkedList will make more sense. While size() operator is O(1) on both the ArrayList and the LinkedList, when you remove the oldest ticket ie index(0), it is a O(N) operation for ArrayList, but a O(1) for LinkedList.
 
 
 ## When measuring actual runtime, is the LinkedList version Suho wrote, or your ArrayList version faster? Does this change when the list size is small versus when it is very large?
@@ -32,6 +51,8 @@ Your report should answer the following questions:
 * What did you learn from this experience?
 * Which implementation do you suggest should be used? Are there certain situations that might call for the other approach?
 * How does the theoretical time complexity compare with your findings?
+
+It is clear that the asympotic runtime vs the real world runtime may not.
 
 
 
