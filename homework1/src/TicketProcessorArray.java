@@ -19,7 +19,7 @@ public class TicketProcessorArray {
 
         
         while (!ticketQueue.isEmpty()) {
-            // grab the first item in the list
+            // Swap 1st and Last elelment then delete from last
             int cur=ticketQueue.size();
             String tmp=ticketQueue.get(0);
             ticketQueue.set(0,ticketQueue.get(cur-1));
