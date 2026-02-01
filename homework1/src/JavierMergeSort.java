@@ -1,5 +1,6 @@
 package homework1.src;
 
+import java.util.Arrays;
 import java.util.LinkedList;
 import java.util.Random;
 
@@ -12,10 +13,15 @@ public class JavierMergeSort {
         Random rand = new Random();
 
         for (int i = 0; i < 1000; i++) {
+            //populate the input[0...999] input with random numbers 0-5000
             input[i] = rand.nextInt(5000);
         }
 
         mergeSort(input);
+
+        
+        int[] sorted = mergeSort(input);
+        System.out.println(Arrays.toString(sorted));
 
     }
 
