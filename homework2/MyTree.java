@@ -1,4 +1,3 @@
-
 public class MyTree<T extends Comparable<T>> {
     private MyNode<T> root;
     private int size;

@@ -1,0 +1,7 @@
+javac BookRecommender.java
+// step 0: load data into 2x adj. list + adj Matrix(based on nested hashMap)
+java BookRecommender user_likes_small.csv test
+
+java BookRecommender user_likes_small.csv single_book_mn Foundation
+
+java BookRecommender user_likes_small.csv like_history_mn 1984 The Hobbit
